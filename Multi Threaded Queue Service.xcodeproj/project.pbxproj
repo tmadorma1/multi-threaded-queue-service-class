@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		258E804A2005864800BA7BA4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258E80492005864800BA7BA4 /* main.cpp */; };
+		258E80522005875100BA7BA4 /* multi_threaded_queue_service.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 258E80502005875100BA7BA4 /* multi_threaded_queue_service.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		258E80462005864800BA7BA4 /* Multi Threaded Queue Service */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Multi Threaded Queue Service"; sourceTree = BUILT_PRODUCTS_DIR; };
 		258E80492005864800BA7BA4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		258E80502005875100BA7BA4 /* multi_threaded_queue_service.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = multi_threaded_queue_service.cpp; sourceTree = "<group>"; };
+		258E80512005875100BA7BA4 /* multi_threaded_queue_service.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = multi_threaded_queue_service.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				258E80492005864800BA7BA4 /* main.cpp */,
+				258E80502005875100BA7BA4 /* multi_threaded_queue_service.cpp */,
+				258E80512005875100BA7BA4 /* multi_threaded_queue_service.hpp */,
 			);
 			path = "Multi Threaded Queue Service";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258E80522005875100BA7BA4 /* multi_threaded_queue_service.cpp in Sources */,
 				258E804A2005864800BA7BA4 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
