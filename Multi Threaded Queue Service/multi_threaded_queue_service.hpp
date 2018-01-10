@@ -6,7 +6,6 @@
 //  Copyright © 2018 Tim Madorma. All rights reserved.
 //
 /*
- 
  The multi threaded queue service is a class that operates as a message
  processing services that provides the following functionalities:
  
@@ -41,7 +40,6 @@
  std::mutex mtx;                         // shared mutex managed by per thread queue_lock
  
  std::condition_variable check_queue_readiness_cv; // cv for accessing msg_queue
- 
  */
 
 #ifndef multi_threaded_queue_service_hpp
