@@ -1,21 +1,21 @@
 # multi-threaded-queue-service-class
 
  The multi threaded queue service is a class that operates as a message
- processing processor that provides the following services:
+ processing services that provides the following functionalities:
  
- 1) Provides a service via a thread-safe method to allow a client/producer/writer
- to write to its internal FIFO/queue. When the queue is full, it will stop writing
- and wait for a signal indicating that the reader threads have popped messages off
- of the queue/FIFO.
+ 1) Provides a service via a thread-safe function (write_queue) to allow a 
+ client/producer to write to its internal FIFO/queue. When the queue 
+ is full, it will disallow writing and wait for a signal indicating that it 
+ can resume because reader threads have popped messages off of the queue/FIFO.
  
  2) Provides the functionality to create a configurable number of internal
  "consumer/service/reader threads, that are continually reused after they
  finish processing a message from the queue, thereby eliminating the
- expense of dynamic "as needed" thread creation.
+ expensive, "dynamic created as needed" threads.
  
  3) Provides conditional_variable functionality for signaling to and between
  all pending threads so they know when it is and is not appropriate to
- attempt their respective queue operations.
+ attempt their respective queue operations (reads and writes).
  
  4) Provides an extendable read_queue thread function to process the message
  that is read from the queue as required by the application.
