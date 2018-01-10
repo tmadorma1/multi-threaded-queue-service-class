@@ -1,7 +1,7 @@
 # multi-threaded-queue-service-class
 
  The multi threaded queue service is a class that operates as a message
- processing services that provides the following functionalities:
+ processing service that provides the following functionalities:
  
  1) Provides a service via a thread-safe function (write_queue) to allow a 
  client/producer to write to its internal FIFO/queue. When the queue 
