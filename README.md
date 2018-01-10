@@ -3,27 +3,29 @@
  The multi_threaded_queue_service is a class that operates as a message
  processing service that provides the following functionalities:
  
- 1) Provides a service via a thread-safe function (write_queue) to allow a 
+ 1) Provides a service via a thread-safe function (write_queue()) to allow a 
  client/producer to write to its internal FIFO/queue. When the queue 
  is full, it will disallow writing and wait for a signal indicating that it 
  can resume because reader threads have popped messages off of the queue/FIFO.
  
  2) Provides the functionality to create a configurable number of internal
  "consumer/service/reader threads, that are continually reused after they
- finish processing a message from the queue, thereby eliminating the
- expensive, "dynamically created as needed" threads.
+ finish processing a message from the queue, thereby eliminating 
+ the expensive of dynamically creating threads as needed.
  
  3) Provides conditional_variable functionality for signaling to and between
  all pending threads so they know when it is and is not appropriate to
  attempt their respective queue operations (reads and writes).
  
- 4) Provides an *extendable* read_queue thread function to process the message
+ 4) Provides an *extendable* read_queue() thread function to process the message
  that is read from the queue as required by the application.
  
- The queue contains string elements in this implementation. It is expected
- that this will be modified as needed, based on application requirements.
+ The queue contains string elements (as messages to process) in this implementation.
+ It is expected that this will be modified as needed, based on application 
+ requirements.
  
- Several STL templates and classes are used to accomplish this, including:
+ Several STL templates and classes are used to accomplish the aforementioned 
+ functionalities, including:
  
  std::vector <std::thread> read_threads; // vector of the internal read threads
  
