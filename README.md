@@ -11,13 +11,13 @@
  2) Provides the functionality to create a configurable number of internal
  "consumer/service/reader threads, that are continually reused after they
  finish processing a message from the queue, thereby eliminating the
- expensive, "dynamic created as needed" threads.
+ expensive, "dynamically created as needed" threads.
  
  3) Provides conditional_variable functionality for signaling to and between
  all pending threads so they know when it is and is not appropriate to
  attempt their respective queue operations (reads and writes).
  
- 4) Provides an extendable read_queue thread function to process the message
+ 4) Provides an *extendable* read_queue thread function to process the message
  that is read from the queue as required by the application.
  
  The queue contains string elements in this implementation. It is expected
