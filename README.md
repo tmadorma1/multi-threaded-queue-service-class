@@ -1,7 +1,7 @@
 # multi-threaded-queue-service-class
 
  The multi threaded queue service is a class that operates as a message
- processing system that includes functionality to:
+ processing processor that provides the following services:
  
  1) Provides a service via a thread-safe method to allow a client/producer/writer
  to write to its internal FIFO/queue. When the queue is full, it will stop writing
@@ -20,7 +20,7 @@
  4) Provides an extendable read_queue thread function to process the message
  that is read from the queue as required by the application.
  
- 5) The queue contains string elements in this implementation. It is expected
+ The queue contains string elements in this implementation. It is expected
  that this will be modified as needed, based on application requirements.
  
  Several STL templates and classes are used to accomplish this, including:
