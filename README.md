@@ -26,7 +26,11 @@
  Several STL templates and classes are used to accomplish this, including:
  
  std::vector <std::thread> read_threads; // vector of the internal read threads
+ 
  std::atomic<bool> execute_threads;      // flag telling if we should execute or not
+ 
  std::queue <std::string> msg_queue;     // queue to write to and read from
+ 
  std::mutex mtx;                         // shared mutex managed by per thread queue_lock
+ 
  std::condition_variable check_queue_readiness_cv; // cv for accessing msg_queue
