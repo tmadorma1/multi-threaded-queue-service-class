@@ -1,6 +1,6 @@
 # multi-threaded-queue-service-class
 
- The multi threaded queue service is a class that operates as a message
+ The multi_threaded_queue_service is a class that operates as a message
  processing service that provides the following functionalities:
  
  1) Provides a service via a thread-safe function (write_queue) to allow a 
