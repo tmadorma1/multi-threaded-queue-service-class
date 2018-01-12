@@ -34,7 +34,7 @@
  functionalities, including:
  
  std::vector <std::thread> read_threads; // vector of the internal read threads
- std::atomic<bool> execute_threads;      // flag telling if we should execute or not
+ std::atomic<bool> run;      // flag telling if we should execute or not
  std::queue <std::string> msg_queue;     // queue to write to and read from
  std::mutex mtx;                         // shared mutex managed by per thread queue_lock
  std::condition_variable check_queue_readiness_cv; // cv for accessing msg_queue
@@ -54,19 +54,17 @@ class multi_threaded_queue_service
 {
 public:
     
-    multi_threaded_queue_service(int max_q_elems): max_queue_elems(max_q_elems), execute_threads(true) {}
+    multi_threaded_queue_service(int max_q_elems): max_queue_elems(max_q_elems), run(true) {}
     ~multi_threaded_queue_service();
     
-    // Disable the copy constructor since we have internal threads
+    // Disable the copy constructor and assignment operator since we have internal threads
     multi_threaded_queue_service(const multi_threaded_queue_service&) = delete;
-    
-    // Disable the Assignment opeartor since we have internal threads
     multi_threaded_queue_service& operator=(const multi_threaded_queue_service&) = delete;
     
     int write_queue(std::string write_message, int thread_num);
-    int create_read_queue_thrds(int num_threads);
+    void create_read_queue_thrds(int num_threads);
     
-    void stop_execution(void) { execute_threads = false;
+    void stop_execution(void) { run = false;
         notify_thrds_to_check_queue();}
     
 private:
@@ -80,7 +78,7 @@ private:
     
     int max_queue_elems;
     std::vector <std::thread> read_threads; // vector of the internal read threads
-    std::atomic<bool> execute_threads;      // flag telling if we should execute or not
+    std::atomic<bool> run;      // flag telling if we should execute or not
     std::queue <std::string> msg_queue;     // queue to write to and read from
     std::mutex mtx;                         // shared mutex managed by per thread queue_lock
     std::condition_variable check_queue_readiness_cv; // cv for accessing msg_queue
