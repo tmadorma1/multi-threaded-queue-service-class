@@ -85,13 +85,12 @@ int multi_threaded_queue_service::write_queue(string write_message, int thread_n
         wait_for_queue_check_signal(queue_lock);
     }
     
-    if (run == false) { cout << "writer thread: " << thread_num << " exiting by request" << endl;
-    }
-    else {
+    if (run == true) {
         cout << "writer thread: " << thread_num << " writing string: \"" << write_message << "\" to the queue" << endl;
         msg_queue.push(write_message);
         notify_thrds_to_check_queue();
     }
+    else { cout << "writer thread: " << thread_num << " exiting by request" << endl; }
     
     return 0;
 }
