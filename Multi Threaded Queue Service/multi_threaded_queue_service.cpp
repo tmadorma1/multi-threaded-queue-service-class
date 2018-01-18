@@ -79,9 +79,7 @@ int multi_threaded_queue_service::write_queue(string write_message, int thread_n
     // The loop that waits for the right circumstance to write. If it's not right,
     // just wait until another thread sends a "check queue signal", then try again.
     while( (msg_queue.size() == max_queue_elems)  && run) {
-        if ( msg_queue.size() == max_queue_elems) {
-            cout << "writer thread: " << thread_num << " queue is full - wait for reader thrds to pop elements" << endl;
-        }
+        cout << "writer thread: " << thread_num << " queue is full - wait for reader thrds to pop elements" << endl;
         wait_for_queue_check_signal(queue_lock);
     }
     
