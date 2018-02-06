@@ -8,21 +8,21 @@
  is full, it will disallow writing and wait for a signal indicating that it
  can resume because reader threads have popped messages off of the queue/FIFO.
  
- 2) The functionality to create a configurable number of internal
- "consumer/service/reader threads, that are continually reused after they
- finish processing a message from the queue, thereby eliminating
- the expensive of dynamically creating threads as needed.
+ 2) Built-in internal "consumer/service/reader" threads. The number of these
+ threads is configurable. They are reused after they finish
+ processing an associated message from the queue, thereby eliminating
+ the expense of dynamically creating threads as needed.
  
  3) Conditional_variable functionality for signaling to and between
  all pending threads so they know when it is and is not appropriate to
- attempt their respective queue operations (reads and writes).
+ attempt their respective queue operations (reads/writes).
  
- 4) An *extendable* read_queue() thread function to process the message
+ 4) An *customizable* read_queue() thread function to process the message
  that is read from the queue as required by the application.
  
- The queue contains string elements (as messages to process) in this implementation.
- It is expected that this will be modified as needed, based on application 
- requirements.
+ Note: The queue currently contains string elements (as messages to process) in 
+ this implementation. It is expected that the format of the message will be 
+ modified as needed (based on application requirements).
  
  Several STL templates and classes are used to accomplish the aforementioned 
  functionalities, including:
