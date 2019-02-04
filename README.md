@@ -17,7 +17,7 @@
  all pending threads so they know when it is and is not appropriate to
  attempt their respective queue operations (reads/writes).
  
- 4) An *customizable* read_queue() thread function to process the message
+ 4) A *customizable* read_queue() thread function to process the message
  that is read from the queue as required by the application.
  
  Note: The queue currently contains string elements (as messages to process) in 
@@ -33,6 +33,6 @@
  
  std::queue <std::string> msg_queue;     // queue to write to and read from
  
- std::mutex mtx;                         // shared mutex managed by per thread queue_lock
+ std::mutex mtx;                         // shared mutex, managed by a per thread queue_lock
  
  std::condition_variable check_queue_readiness_cv; // cv for accessing msg_queue
